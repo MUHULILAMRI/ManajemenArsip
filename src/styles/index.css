@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,19 +6,32 @@
 
 @layer base {
   body {
-    @apply antialiased font-sans transition-colors duration-300;
+    @apply antialiased font-sans text-slate-200 bg-background-dark;
   }
 }
 
-.glass-morphism {
-  background: rgba(26, 38, 50, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+@layer utilities {
+  .glass {
+    @apply bg-background-cardish/60 backdrop-blur-xl border border-white/5 shadow-xl;
+  }
+
+  .glass-card {
+    background: linear-gradient(145deg, rgba(24, 33, 47, 0.9), rgba(15, 22, 30, 0.95));
+    @apply backdrop-blur-2xl border border-white/5 shadow-2xl;
+  }
+
+  .neon-text {
+    text-shadow: 0 0 10px rgba(19, 127, 236, 0.5), 0 0 20px rgba(19, 127, 236, 0.3);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px currentColor;
+  }
 }
 
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
@@ -26,20 +39,12 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #233648;
+  background: #1f2e41;
   border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #137fec;
-}
-
-.stats-card-gradient {
-  background: linear-gradient(135deg, rgba(19, 127, 236, 0.1) 0%, rgba(19, 127, 236, 0.02) 100%);
-}
-
-.active-nav-link {
-  @apply bg-sidebar-active text-white;
 }
 
 ::selection {
